@@ -188,6 +188,7 @@ footer.site a{color:var(--muted)}
         <label><span class="sub">病院名</span><input class="field" id="work" type="text" autocomplete="organization" placeholder="例）○○動物病院"></label>
         <label><span class="sub">都道府県</span><input class="field" id="pref" type="text" placeholder="例）神奈川県"></label>
       </div>
+      <label style="display:block;margin-top:10px"><span class="sub">ホームページ（任意）</span><input class="field" id="site" type="url" inputmode="url" autocomplete="url" placeholder="例）https://○○-ah.jp"></label>
     </section>
     <section class="q">
       <h3>臨床経験<span class="req">必須</span></h3>
@@ -219,7 +220,7 @@ footer.site a{color:var(--muted)}
   <section class="done" id="done" hidden tabindex="-1">
     <h3>ご応募ありがとうございます</h3>
     <p>内容を受け付けました。担当より、入力いただいたメールアドレスにご連絡します。</p>
-    <p class="fine">数日たっても連絡がない場合は、お手数ですが <a href="https://ig.me/m/pet_skin" target="_blank" rel="noopener">Instagram @pet_skin のDM</a> でお知らせください。</p>
+    <p class="fine">確認メールをお送りしています。数日たっても連絡がない場合は、お手数ですが <a href="mailto:toyoda@onesec.co.jp">toyoda@onesec.co.jp</a> までご連絡ください。</p>
   </section>
 </div>
 
@@ -239,7 +240,7 @@ footer.site a{color:var(--muted)}
 const FORM = {
   action: 'https://docs.google.com/forms/d/e/1FAIpQLSdKEpZkZKxXhd_zeiinHQhLwrnAi4Q1HkbUWFcjBtuevxylTg/formResponse',
   viewform: 'https://docs.google.com/forms/d/e/1FAIpQLSdKEpZkZKxXhd_zeiinHQhLwrnAi4Q1HkbUWFcjBtuevxylTg/viewform',
-  entry: {"name": "entry.508985554", "email": "entry.1671856537", "work": "entry.889286166", "pref": "entry.565670130", "exp": "entry.66363714", "days": "entry.2119761071", "visit": "entry.878024897", "src": "entry.488373964", "msg": "entry.1489098242"}
+  entry: {"name": "entry.508985554", "email": "entry.1671856537", "work": "entry.889286166", "pref": "entry.565670130", "site": "entry.1503207182", "exp": "entry.66363714", "days": "entry.2119761071", "visit": "entry.878024897", "src": "entry.488373964", "msg": "entry.1489098242"}
 };
 
 const OPTS = {
@@ -260,7 +261,7 @@ document.querySelectorAll('.opts[data-name]').forEach(box=>{
 const f = document.getElementById('f');
 const val = id => document.getElementById(id).value.trim();
 const picked = n => [...f.querySelectorAll(`input[name="${n}"]:checked`)].map(i=>i.value).join('・');
-const TEXT_KEYS = ['name','email','work','pref','exp','msg'];
+const TEXT_KEYS = ['name','email','work','pref','site','exp','msg'];
 
 function state(){
   const s = {agree:document.getElementById('agree').checked};
