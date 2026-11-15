@@ -122,6 +122,10 @@ footer.site a{color:var(--muted)}
     <section class="q">
       <h3>研修に通える頻度<span class="req">必須</span></h3>
       <div class="opts" data-name="freq"></div>
+      <div class="oudo" id="freq-online" hidden style="margin:12px 0 0">
+        <p>定期的に通うのが難しい先生には、伊從が毎月配信しているケースカンファレンス<b>「伊從の診療室」</b>もおすすめしています（アーカイブ配信あり・初月無料）。</p>
+        <a class="btn ghost" href="https://iyori-clinic.share-wis.com/signup/iyori" target="_blank" rel="noopener">伊從の診療室を見る</a>
+      </div>
       <p class="note">研修は全員一斉に始まるわけではありません。すでにご予定が入っていて、しばらく来られない場合も問題ありません。通えるようになってからの頻度でお答えください。</p>
     </section>
     <section class="q">
@@ -227,6 +231,7 @@ const sendBtn = document.getElementById('send'), hint = document.getElementById(
 function render(){
   const s = state(), m = missing(s);
   document.getElementById('seen-note').hidden = s.seen!=='まだ見ていない';
+  document.getElementById('freq-online').hidden = !(s.freq==='月1回程度' || s.freq==='まずは見学だけしたい');
   document.getElementById('reg-yes').hidden = s.reg!=='登録している';
   document.getElementById('reg-no').hidden = s.reg!=='まだ登録していない';
   sendBtn.setAttribute('aria-disabled', m.length ? 'true' : 'false');
